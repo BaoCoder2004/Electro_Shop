@@ -19,8 +19,8 @@ namespace ElectroShop.Areas.Admin.Controllers
         {
             ViewBag.demrac = db.Topics.Where(m => m.Status == 0).Count();
             var list = db.Topics.Where(m => m.Status != 0).ToList();
-
-            foreach (var row in list)
+			ViewBag.GetAllTopic = list;
+			foreach (var row in list)
             {
                 var temp_link = db.Links.Where(m => m.Type == "topic" && m.TableId == row.Id);
                 if (temp_link.Count() > 0)
